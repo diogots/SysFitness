@@ -2,7 +2,7 @@ from aluno import *
 from entrada import *
 from navegabilidade import *
 
-id = 0
+id = 1
 alunos = []
 
 #carregar_arquivo()
@@ -10,15 +10,15 @@ alunos = []
 while True:
     imprimir_cabecalho()
     exibir_menu()
-    opc = ler_inteiro()
+    opc = ler_inteiro("Opção: ")
 
     #navegabilidade
     if (opc == 1):
-        #cadastrar
-        pass
+        aln = cadastrar_aluno(id)
+        alunos.append(aln)
+        id += 1
     elif (opc == 2):
-        #imprimir
-        pass
+        print_alunos(alunos)
     elif (opc == 3):
         #buscar id
         pass
