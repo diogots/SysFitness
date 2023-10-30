@@ -1,4 +1,5 @@
 from entrada import *
+import json
 
 def cadastrar_aluno(id:int):
     """
@@ -58,6 +59,22 @@ def print_alunos(alunos:list):
         print_aluno(aln)
         print("-----------------------")
 
+def salvar_dados(alunos:list,id:int):
+    lista = [alunos,id]
+
+    try:
+        with open("Alunos.json","w") as esc:
+            json.dump(lista,esc,indent=4,ensure_ascii=False)
+            print("Dados salvos com sucesso!")
+    except:
+        print("Ocorreram erros na escrita do arquivo!")
 
 
-
+def ler_dados():
+    try:
+        with open("Alunos.json","r") as ler:
+            lista = json.load(ler)
+            print("Dados lidos com sucesso!")
+            return lista
+    except:
+        print("Ocorreram erros na leitura do arquivos!")

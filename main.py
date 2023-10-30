@@ -2,8 +2,14 @@ from aluno import *
 from entrada import *
 from navegabilidade import *
 
+
 id = 1
 alunos = []
+
+ret = ler_dados()
+if ret:
+    alunos = ret[0]
+    id = ret[1]
 
 #carregar_arquivo()
 
@@ -26,7 +32,7 @@ while True:
         #filtrar por imc
         pass
     elif (opc == 5):
-        #salvar
+        salvar_dados(alunos,id)
         break
     else:
         print("Opção inválida!")
